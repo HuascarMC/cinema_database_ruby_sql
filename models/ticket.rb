@@ -21,4 +21,5 @@ class Ticket
     tickets = results.map {|result| Ticket.new(result)}
     return tickets
   end
+
 end
