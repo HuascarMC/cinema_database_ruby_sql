@@ -17,5 +17,5 @@ price INT4
 CREATE TABLE tickets(
 id SERIAL4 PRIMARY KEY,
 customer_id INT4 REFERENCES customers(id),
-cinema_id INT4 REFERENCES films(id)
+film_id INT4 REFERENCES films(id)
 );
