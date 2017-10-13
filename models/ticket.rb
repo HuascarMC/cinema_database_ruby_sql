@@ -15,10 +15,10 @@ class Ticket
   end
 
   def self.all()
-    sql = "SELECT FROM customers"
+    sql = "SELECT * FROM tickets"
     values = []
     results = SqlRunner.run(sql, values)
-    customers = results.map {|result| Customer.new(result)}
-    return customers
+    tickets = results.map {|result| Ticket.new(result)}
+    return tickets
   end
 end
