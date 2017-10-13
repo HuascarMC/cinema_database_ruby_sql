@@ -22,4 +22,5 @@ class Ticket
     return tickets
   end
 
+
 end
