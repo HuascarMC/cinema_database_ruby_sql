@@ -4,12 +4,14 @@ DROP TABLE customers;
 
 CREATE TABLE customers(
 id SERIAL4 PRIMARY KEY,
-name VARCHAR(255)
+name VARCHAR(255),
+funds INT4
 );
 
 CREATE TABLE films(
 id SERIAL4 PRIMARY KEY,
-name VARCHAR(255)
+title VARCHAR(255),
+price INT4
 );
 
 CREATE TABLE tickets(
