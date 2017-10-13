@@ -29,4 +29,6 @@ class Customer
     values = [name, funds, @id]
     SqlRunner.run(sql, values)
   end
+
+  
 end
