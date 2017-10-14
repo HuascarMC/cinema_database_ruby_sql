@@ -44,4 +44,12 @@ class Customer
     films = results.map {|film| Film.new(film)}
     return films
   end
+
+  def buy_ticket(title)
+    sql = "SELECT films.price FROM films INNER JOIN tickets
+          ON tickets.film_id = films.id WHERE films.title = $1"
+    values = [title]
+    price = (SqlRunner.run(sql, values)[0]["price"]).to_i
+    @funds -= price
+  end
 end
