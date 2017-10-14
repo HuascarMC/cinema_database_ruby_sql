@@ -55,7 +55,9 @@ class Customer
       @funds -= price
       ticket = Ticket.new('customer_id' => @id, 'film_id' => film[0]['id'].to_i)
       ticket.save()
+    return "Enjoy the movie."
     end
+    return "You need more money."
   end
 
   def tickets()
