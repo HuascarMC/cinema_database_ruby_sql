@@ -1,5 +1,5 @@
 require_relative('../db/sqlrunner.rb')
-
+require_relative('ticket.rb')
 class Customer
   attr_reader :id
   attr_accessor :name, :funds
@@ -46,10 +46,23 @@ class Customer
   end
 
   def buy_ticket(title)
-    sql = "SELECT films.price FROM films INNER JOIN tickets
+    sql = "SELECT films.* FROM films INNER JOIN tickets
           ON tickets.film_id = films.id WHERE films.title = $1"
     values = [title]
-    price = (SqlRunner.run(sql, values)[0]["price"]).to_i
-    @funds -= price
+    film = SqlRunner.run(sql, values)
+    price = (film[0]["price"]).to_i
+    if @funds >= price
+      @funds -= price
+      ticket = Ticket.new('customer_id' => @id, 'film_id' => film[0]['id'].to_i)
+      ticket.save()
+    end
+  end
+
+  def tickets()
+    sql = "SELECT * FROM tickets WHERE customer_id = $1"
+    values = [@id]
+    results = (SqlRunner.run(sql, values))
+    tickets = results.map {|ticket| Ticket.new(ticket)}
+    return tickets
   end
 end
