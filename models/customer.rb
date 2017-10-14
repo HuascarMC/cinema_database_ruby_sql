@@ -63,6 +63,6 @@ class Customer
     values = [@id]
     results = (SqlRunner.run(sql, values))
     tickets = results.map {|ticket| Ticket.new(ticket)}
-    return tickets
+    return tickets.count
   end
 end
