@@ -1,5 +1,6 @@
 require_relative('../db/sqlrunner.rb')
 require_relative('ticket.rb')
+
 class Customer
   attr_reader :id
   attr_accessor :name, :funds

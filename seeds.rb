@@ -21,9 +21,9 @@ ticket1.save()
 ticket2 = Ticket.new({'customer_id' => customer2.id, 'film_id' => film2.id})
 ticket2.save()
 
-screenings1 = Screenings.new({'title' => film1.title, 'start_time' => film1.start_time })
+screenings1 = Screenings.new({'title' => film1.title, 'start_time' => film1.start_time, 'available_tickets' => '4'})
 screenings1.save()
-screenings2 = Screenings.new({'title' => film2.title, 'start_time' => film2.start_time })
+screenings2 = Screenings.new({'title' => film2.title, 'start_time' => film2.start_time, 'available_tickets' => '5'})
 screenings2.save()
 
 binding.pry

@@ -25,5 +25,6 @@ film_id INT4 REFERENCES films(id) ON DELETE CASCADE
 CREATE TABLE screenings(
 id SERIAL4 PRIMARY KEY,
 title VARCHAR(255) REFERENCES films(title) ON DELETE CASCADE,
-start_time VARCHAR(255) REFERENCES films(start_time) ON DELETE CASCADE
+start_time VARCHAR(255) REFERENCES films(start_time) ON DELETE CASCADE,
+available_tickets INT4 --CHECK (available_tickets < 5)
 );
